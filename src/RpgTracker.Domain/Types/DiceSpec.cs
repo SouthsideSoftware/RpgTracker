@@ -4,6 +4,6 @@ namespace RpgTracker.Domain.Types
     {
         public short NumberOfDice { get; set; }
         public DiceType DiceType { get; set; }
-        public short Add { get; set; }
+        public short Modifier { get; set; }
     }
 }
