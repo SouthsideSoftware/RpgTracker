@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C12433B0-0B89-4559-9B7C-A8E61F80D5E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgTracker.Domain.Monsters", "src\RpgTracker.Domain.Monsters\RpgTracker.Domain.Monsters.csproj", "{6D8F12E5-1AB5-436D-8945-FADC7E50AC6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgTracker.Domain", "src\RpgTracker.Domain\RpgTracker.Domain.csproj", "{6D8F12E5-1AB5-436D-8945-FADC7E50AC6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
