@@ -9,7 +9,7 @@ namespace RpgTracker.Engine
         
         public DiceRollerResult Roll(DiceSpec diceSpec)
         {
-            
+            return new DiceRollerResult();
         }
     }
 }
