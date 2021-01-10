@@ -9,4 +9,8 @@
       <ProjectReference Include="..\RpgTracker.Storage\RpgTracker.Storage.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="RavenDB.Client" Version="5.1.2" />
+    </ItemGroup>
+
 </Project>
