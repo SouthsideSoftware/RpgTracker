@@ -3,7 +3,7 @@ using Raven.Client.Documents.Session;
 
 namespace RpgTracker.Storage.RavenDB
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private readonly IAsyncDocumentSession session; 
         
@@ -20,6 +20,11 @@ namespace RpgTracker.Storage.RavenDB
         public async void StoreAsync(object o)
         {
             await session.StoreAsync(o);
+        }
+
+        public void Dispose()
+        {
+            session.Dispose();
         }
     }
 }
