@@ -12,14 +12,14 @@ namespace RpgTracker.Storage.RavenDB
             session = ((DatabaseConnection) connection).Store.OpenAsyncSession();
         }
         
-        public void Save()
+        public async void SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            await session.SaveChangesAsync();
         }
 
-        public void Store(object o)
+        public async void StoreAsync(object o)
         {
-            throw new NotImplementedException();
+            await session.StoreAsync(o);
         }
     }
 }

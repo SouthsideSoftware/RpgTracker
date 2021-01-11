@@ -5,5 +5,6 @@ namespace RpgTracker.Storage
     public interface IDatabaseConnection
     {
         IUnitOfWork OpenUnitOfWorkAsync();
+        void DeleteDatabase();
     }
 }

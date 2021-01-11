@@ -7,14 +7,13 @@ namespace RpgTracker.Engine
     {
         private readonly short? currentRound;
         private readonly short? combatantTurnIndex;
-        private readonly IList<Combatant> combatants;
 
         public CombatTracker()
         {
             
         }
 
-        public IList<Combatant> Combatants => combatants;
+        public IList<Combatant> Combatants { get; }
 
         public short? CurrentRound => currentRound;
 

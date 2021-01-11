@@ -1,11 +1,11 @@
-using RpgTracker.Domain.Interfaces;
+using RpgTracker.Domain.Types;
 
 namespace RpgTracker.Storage
 {
     public interface IEncounterRepository
     {
-        IEncounter Get(string id);
-        IEncounter GetByName(string folderId, string name);
-        void Save(IEncounter encounter);
+        Encounter Get(string id);
+        Encounter GetByName(string folderId, string name);
+        void Save(Encounter encounter);
     }
 }

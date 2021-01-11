@@ -1,29 +1,30 @@
 using RpgTracker.Domain.Interfaces;
+using RpgTracker.Domain.Types;
 
 namespace RpgTracker.Storage.RavenDB
 {
     public class EncounterRepository : IEncounterRepository
     {
-        private readonly IDatabaseConnection databaseConnection;
+        private readonly IUnitOfWork unitOfWork;
 
-        public EncounterRepository(IDatabaseConnection databaseConnection)
+        public EncounterRepository(IUnitOfWork unitOfWork)
         {
-            this.databaseConnection = databaseConnection;
+            this.unitOfWork = unitOfWork;
         }
         
-        public IEncounter Get(string id)
+        public Encounter Get(string id)
         {
             throw new System.NotImplementedException();
         }
 
-        public IEncounter GetByName(string folderId, string name)
+        public Encounter GetByName(string folderId, string name)
         {
             throw new System.NotImplementedException();
         }
 
-        public void Save(IEncounter encounter)
+        public void Save(Encounter encounter)
         {
-            throw new System.NotImplementedException();
+            unitOfWork.SaveChangesAsync();
         }
     }
 }

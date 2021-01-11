@@ -1,5 +1,7 @@
+using System;
 using System.Threading.Tasks;
 using Raven.Client.Documents;
+using Raven.Client.ServerWide.Operations;
 
 namespace RpgTracker.Storage.RavenDB
 {
@@ -39,6 +41,12 @@ namespace RpgTracker.Storage.RavenDB
         public IUnitOfWork OpenUnitOfWorkAsync()
         {
             return new UnitOfWork(this);
+        }
+
+        public void DeleteDatabase()
+        {
+            var taskInfo = Store.Maintenance.Server.Send(new DeleteDatabasesOperation("RpgTracker", hardDelete: true,
+                fromNode: null, timeToWaitForConfirmation: TimeSpan.FromSeconds(30)));
         }
     }
 }
