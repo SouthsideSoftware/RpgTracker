@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Raven.Client.Documents.Session;
 
 namespace RpgTracker.Storage.RavenDB
@@ -12,12 +13,12 @@ namespace RpgTracker.Storage.RavenDB
             session = ((DatabaseConnection) connection).Store.OpenAsyncSession();
         }
         
-        public async void SaveChangesAsync()
+        public async Task SaveChangesAsync()
         {
             await session.SaveChangesAsync();
         }
 
-        public async void StoreAsync(object o)
+        public async Task StoreAsync(object o)
         {
             await session.StoreAsync(o);
         }

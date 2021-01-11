@@ -19,8 +19,8 @@ namespace RpgTracker.Tests.Integration
         public async void SaveEncounter()
         {
             using var uow = fixture.DatabaseConnection.OpenUnitOfWorkAsync();
-            uow.StoreAsync(new Encounter(null, "One", new List<Combatant>()));
-            uow.SaveChangesAsync();
+            await uow.StoreAsync(new Encounter(null, "One", new List<Combatant>()));
+            await uow.SaveChangesAsync();
         }
         
     }

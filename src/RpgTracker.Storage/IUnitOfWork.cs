@@ -1,10 +1,11 @@
 using System;
+using System.Threading.Tasks;
 
 namespace RpgTracker.Storage
 {
     public interface IUnitOfWork : IDisposable
     {
-        void SaveChangesAsync();
-        void StoreAsync(object o);
+        Task SaveChangesAsync();
+        Task StoreAsync(object o);
     }
 }

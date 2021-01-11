@@ -1,6 +1,10 @@
 using System;
 using System.Threading.Tasks;
 using Raven.Client.Documents;
+using Raven.Client.Documents.Operations;
+using Raven.Client.Exceptions;
+using Raven.Client.Exceptions.Database;
+using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 
 namespace RpgTracker.Storage.RavenDB
@@ -36,6 +40,7 @@ namespace RpgTracker.Storage.RavenDB
             }.Initialize();
 
             Store = newStore;
+            EnsureDatabaseExists();
         }
         
         public IUnitOfWork OpenUnitOfWorkAsync()
@@ -43,9 +48,29 @@ namespace RpgTracker.Storage.RavenDB
             return new UnitOfWork(this);
         }
 
+        private void EnsureDatabaseExists()
+        {
+            try
+            {
+                Store.Maintenance.ForDatabase(Store.Database).Send(new GetStatisticsOperation());
+            }
+            catch (DatabaseDoesNotExistException)
+            {
+                try
+                {
+                    Store.Maintenance.Server.Send(new CreateDatabaseOperation(new DatabaseRecord(Store.Database)));
+                }
+                catch (ConcurrencyException)
+                {
+                    // The database was already created before calling CreateDatabaseOperation
+                }
+
+            }
+        }
+
         public void DeleteDatabase()
         {
-            var taskInfo = Store.Maintenance.Server.Send(new DeleteDatabasesOperation("RpgTracker", hardDelete: true,
+            Store.Maintenance.Server.Send(new DeleteDatabasesOperation("RpgTracker", hardDelete: true,
                 fromNode: null, timeToWaitForConfirmation: TimeSpan.FromSeconds(30)));
         }
     }
