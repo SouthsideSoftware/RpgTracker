@@ -41,7 +41,7 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 
 const useStyles = makeStyles(styles);
 
-export default function Dashboard() {
+export default function Encounters() {
   const classes = useStyles();
   return (
     <div>
@@ -60,7 +60,7 @@ export default function Dashboard() {
                   <Warning />
                 </Danger>
                 <a href="#pablo" onClick={e => e.preventDefault()}>
-                  Dashboard under development
+                  Encounters under development
                 </a>
               </div>
             </CardFooter>

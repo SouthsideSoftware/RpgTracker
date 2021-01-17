@@ -10,6 +10,7 @@ import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
+import EncountersPage from "views/Encounters/Encounters.js";
 
 const dashboardRoutes = [
   {
@@ -23,7 +24,7 @@ const dashboardRoutes = [
     path: "/encounters",
     name: "Encounters",
     icon: Notifications,
-    component: DashboardPage,
+    component: EncountersPage,
     layout: "/admin"
   },
   {
