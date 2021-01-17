@@ -8,9 +8,13 @@ import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
 import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
+
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import EncountersPage from "views/Encounters/Encounters.js";
+import CharactersPage from "views/Characters/Characters.js";
+import MonstersPage from "views/Monsters/Monsters.js";
+import BattleMapsPage from "views/BattleMaps/BattleMaps.js";
 
 const dashboardRoutes = [
   {
@@ -31,21 +35,21 @@ const dashboardRoutes = [
     path: "/characters",
     name: "Characters",
     icon: Notifications,
-    component: DashboardPage,
+    component: CharactersPage,
     layout: "/admin"
   },
   {
     path: "/monsters",
     name: "Monsters",
     icon: Notifications,
-    component: DashboardPage,
+    component: MonstersPage,
     layout: "/admin"
   },
   {
-    path: "/maps",
-    name: "Maps",
+    path: "/battlemaps",
+    name: "Battle maps",
     icon: Notifications,
-    component: DashboardPage,
+    component: BattleMapsPage,
     layout: "/admin"
   },
 ];
